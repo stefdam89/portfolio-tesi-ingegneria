@@ -158,7 +158,7 @@ section h2::after {
     border: 1px solid #ccc;
     border-radius: 8px;
     width: 100%;
-    height: 600px; /* Altezza fissa per il visualizzatore PDF */
+    height: 600px;
 }
 
 /* Pulsante di download */
@@ -186,7 +186,7 @@ section h2::after {
     box-shadow: 0 3px 12px rgba(0,0,0,0.1);
 }
 
-/* --- Sezione Video --- */
+/* --- Sezione Video (MODIFICHE CRUCIALI QUI) --- */
 .video-container {
     background-color: #ecf0f1;
     border-radius: 10px;
@@ -194,22 +194,26 @@ section h2::after {
     padding: 20px;
     margin-top: 20px;
     
+    /* REGOLE FONDAMENTALI PER IL RESPONSIVE VIDEO */
     position: relative;
-    padding-bottom: 56.25%; /* Rapporto 16:9 (9 / 16 * 100%) */
-    height: 0; /* Altezza iniziale a 0 per far funzionare padding-bottom */
-    overflow: hidden;
+    width: 100% !important; /* Forza la larghezza al 100% */
+    padding-bottom: 56.25% !important; /* Forza il rapporto 16:9 con !important */
+    height: 0 !important; /* Forza l'altezza a 0 con !important */
+    overflow: hidden; /* Nasconde ciò che esce dai bordi */
     border: 1px solid #dcdfe4;
-    min-height: 200px; /* Aggiungi un'altezza minima per debugging, rimuovere se funziona */
 }
 
 .video-container .responsive-video {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100% !important; /* Forza la larghezza al 100% con !important */
+    height: 100% !important; /* Forza l'altezza al 100% con !important */
+    object-fit: contain; /* Assicura che l'intero video sia visibile, scalando se necessario */
+    max-width: 100%; 
+    max-height: 100%;
     border-radius: 8px;
-    object-fit: cover;
+    display: block; /* Assicurati che sia un elemento a blocco */
 }
 
 /* --- Contatti --- */
@@ -231,7 +235,9 @@ section h2::after {
     border-top-right-radius: 20px;
 }
 
-/* --- Media Queries per Responsive Design --- */
+/* --- Media Queries per Responsive Design (MODIFICHE AGGIORNATE) --- */
+
+/* Regole per schermi <= 768px (Tablet in verticale, Smartphone in orizzontale) */
 @media (max-width: 768px) {
     body {
         padding-top: 56px;
@@ -242,8 +248,100 @@ section h2::after {
     }
 
     .hero-section h1 {
-        font-size: 1.8em;
+        font-size: 2em;
         margin-bottom: 10px;
+    }
+
+    .lead {
+        font-size: 1em;
+    }
+
+    .profile-pic {
+        max-width: 150px;
+        max-height: 150px;
+        margin-top: 20px;
+    }
+
+    main {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    section {
+        padding: 25px 20px;
+        margin-bottom: 25px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+
+    section h2 {
+        font-size: 2em;
+        margin-bottom: 25px;
+    }
+
+    section h2::after {
+        width: 60px;
+        height: 4px;
+    }
+
+    .thesis-card {
+        padding: 25px;
+        border-left: 5px solid #1abc9c;
+    }
+
+    .thesis-card h3 {
+        font-size: 1.5em;
+        margin-bottom: 15px;
+    }
+
+    .thesis-abstract {
+        padding: 18px;
+        font-size: 1em;
+        border-left: 4px solid #1abc9c;
+        margin-top: 20px;
+    }
+
+    .pdf-viewer-container {
+        padding: 15px;
+        margin-top: 25px;
+    }
+
+    .pdf-viewer-container iframe {
+        height: 400px;
+        width: 100%;
+    }
+
+    .btn-primary {
+        padding: 10px 25px;
+        font-size: 1.05em;
+    }
+
+    .video-container {
+        padding: 15px; 
+        margin: 20px auto; 
+        max-width: 90%; 
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    /* Modifica per le colonne di Bootstrap: aggiunta una regola specifica per il padding */
+    .row > .col-md-6,
+    .row > .col-md-8 {
+        padding-left: var(--bs-gutter-x, 0.75rem) !important; /* Forzo il padding standard */
+        padding-right: var(--bs-gutter-x, 0.75rem) !important; /* Forzo il padding standard */
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+/* Regole per schermi molto piccoli (es. <= 576px, smartphone in verticale) */
+@media (max-width: 576px) {
+    .hero-section {
+        padding: 30px 0;
+    }
+
+    .hero-section h1 {
+        font-size: 1.6em;
     }
 
     .lead {
@@ -251,107 +349,47 @@ section h2::after {
     }
 
     .profile-pic {
-        max-width: 120px;
-        max-height: 120px;
-        margin-top: 15px;
-    }
-
-    main {
-        padding-top: 15px;
-        padding-bottom: 15px;
+        max-width: 100px;
+        max-height: 100px;
+        margin-top: 10px;
     }
 
     section {
-        padding: 20px 15px; /* Aumentato un po' il padding laterale per evitare che sia troppo stretto */
+        padding: 20px 15px;
         margin-bottom: 20px;
-        border-radius: 8px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.06);
     }
 
     section h2 {
-        font-size: 1.8em;
+        font-size: 1.6em;
         margin-bottom: 20px;
-    }
-
-    section h2::after {
-        width: 50px;
-        height: 3px;
     }
 
     .thesis-card {
         padding: 20px;
-        border-left: 5px solid #1abc9c; /* Lievemente più spesso di prima su mobile */
+        border-left: 3px solid #1abc9c;
     }
 
     .thesis-card h3 {
-        font-size: 1.3em;
-        margin-bottom: 10px;
+        font-size: 1.2em;
     }
 
     .thesis-abstract {
-        padding: 15px; /* Lievemente aumentato */
-        font-size: 0.95em; /* Lievemente aumentato */
-        border-left: 3px solid #1abc9c; /* Lievemente più spesso */
-        margin-top: 15px;
-        color: #343a40; /* Riepilogato per sicurezza */
-    }
-
-    .pdf-viewer-container {
-        padding: 15px; /* Lievemente aumentato */
-        margin-top: 20px;
+        padding: 15px;
+        font-size: 0.9em;
+        border-left: 2px solid #1abc9c;
     }
 
     .pdf-viewer-container iframe {
-        height: 350px; /* Altezza leggermente aumentata */
-        width: 100%;
+        height: 300px;
     }
 
     .btn-primary {
-        padding: 10px 20px;
-        font-size: 1em;
+        padding: 8px 18px;
+        font-size: 0.9em;
     }
 
     .video-container {
         padding: 10px;
-        margin: 20px auto; /* Centra orizzontalmente e aggiunge margine */
-        max-width: 90%; /* Limita la larghezza per evitare eccessivo schiacciamento */
-        border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-        min-height: 150px; /* Aumenta l'altezza minima su mobile per una migliore visibilità */
-    }
-
-    /* Regole per le colonne di Bootstrap su schermi piccoli */
-    .row > .col-md-6,
-    .row > .col-md-8 {
-        padding-left: 15px;
-        padding-right: 15px;
-        flex: 0 0 100%; /* Forza le colonne a occupare il 100% della larghezza */
-        max-width: 100%; /* Assicura che non superino il 100% */
-    }
-}
-
-/* Media Query per schermi extra-small (es. iPhone SE, vecchi telefoni) */
-@media (max-width: 480px) {
-    .hero-section h1 {
-        font-size: 1.5em;
-    }
-    .lead {
-        font-size: 0.85em;
-    }
-    section h2 {
-        font-size: 1.5em;
-    }
-    .thesis-card h3 {
-        font-size: 1.1em;
-    }
-    .thesis-abstract {
-        font-size: 0.9em;
-    }
-    .video-container {
-        padding: 5px;
-        min-height: 120px; /* Altezza minima inferiore per schermi molto piccoli */
-    }
-    .pdf-viewer-container iframe {
-        height: 250px; /* Altezza ridotta per schermi molto piccoli */
+        max-width: 95%;
     }
 }
