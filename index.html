@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Tesi - [Tuo Nome]</title>
+    <title>Portfolio Tesi - Arianna D'Amico & Raffaele Valiante</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -11,8 +11,8 @@
 
     <header class="hero-section">
         <div class="container text-center">
-            <h1>[Tuo Nome e Cognome]</h1>
-            <p class="lead">Candidata in Ingegneria - Università [Nome Università]</p>
+            <h1>Arianna D'Amico & Raffaele Valiante</h1>
+            <p class="lead">Laureandi in Ingegneria Edile - Università degli Studi di Napoli Federico II</p>
             <img src="mia_foto.jpg" alt="La tua foto" class="profile-pic">
         </div>
     </header>
@@ -27,7 +27,7 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="#presentazione">Presentazione</a></li>
                     <li class="nav-item"><a class="nav-link" href="#tesi">La Tesi</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#modello3d">Modello 3D</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#video">Video di Progetto</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contatti">Contatti</a></li>
                 </ul>
             </div>
@@ -38,45 +38,50 @@
         <section id="presentazione" class="mb-5">
             <div class="container">
                 <h2>Breve Presentazione</h2>
-                <p>Ciao! Sono [Tuo Nome e Cognome], laureanda in Ingegneria presso l'Università degli Studi di [Nome Università]. Il mio percorso di studi mi ha permesso di approfondire temi legati alla progettazione strutturale, all'efficienza energetica degli edifici e all'uso delle metodologie BIM.</p>
-                <p>Questa pagina web è stata creata per presentare il mio lavoro di tesi...</p>
+                <p>Siamo Arianna D'Amico e Raffaele Valiante, laureandi in Ingegneria Edile presso L'università degli Studi di Napoli Federico II. Il nostro percorso di studi ci ha permesso di approfondire il tema legato all'implementazione del BIM nella procedura di E-Procurement.</p>
             </div>
         </section>
 
         <section id="tesi" class="mb-5">
             <div class="container">
-                <h2>La mia Tesi di Laurea</h2>
+                <h2>La Nostra Tesi di Laurea</h2>
                 <div class="thesis-card">
-                    <h3>Titolo: [Inserisci Qui il Titolo Completo della Tua Tesi]</h3>
+                    <h3>Implementazione del BIM nella procedura di E-Procurement pubblico in contesto OEPV</h3>
                     <p class="thesis-abstract">
-                        **Abstract:** [Incolla qui l'abstract o una sintesi estesa della tua tesi. Descrivi l'argomento, gli obiettivi, la metodologia e i risultati principali.]
+                        La tesi dimostra come l'integrazione del BIM nell'E-Procurement pubblico, in contesto OEPV, consenta una valutazione tecnica automatizzata e trasparente delle offerte, grazie a parametri strutturati estratti dal modello digitale.
                     </p>
 
-                    <h4 class="mt-4">Sfoglia la Tesi</h4>
+                    <h4 class="mt-4">Sfoglia l'Abstract</h4>
                     <div class="pdf-viewer-container">
-                        <iframe src="tesi_completa.pdf" width="100%" height="600px"></iframe>
-                        <p class="text-center mt-3"><a href="tesi_completa.pdf" target="_blank" class="btn btn-primary">Scarica la Tesi Completa (PDF)</a></p>
+                        <iframe src="abstract.pdf" width="100%" height="600px"></iframe>
+                        <p class="text-center mt-3"><a href="abstract.pdf" target="_blank" class="btn btn-primary">Scarica la Tesi Completa (PDF)</a></p>
                     </div>
 
                     <div class="row mt-4">
                         <div class="col-md-6 mb-3">
-                            <img src="immagine_tesi_1.jpg" alt="Grafico tesi" class="img-fluid rounded">
+                            <img src="immagine_tesi_1.jpg" alt="Immagine o grafico dalla tesi" class="img-fluid rounded">
                         </div>
                         <div class="col-md-6 mb-3">
-                            <img src="immagine_tesi_2.jpg" alt="Render tesi" class="img-fluid rounded">
+                            <img src="immagine_tesi_2.jpg" alt="Render o diagramma dalla tesi" class="img-fluid rounded">
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="modello3d" class="mb-5">
+        <section id="video" class="mb-5">
             <div class="container">
-                <h2>Modello 3D Interattivo</h2>
-                <p>Esplora il modello 3D del progetto realizzato in Revit. Questo modello rappresenta [breve descrizione di cosa mostra il modello, es. la struttura di un edificio, il sistema impiantistico, ecc.].</p>
-                <p class="text-muted">Utilizza il mouse per ruotare (clic e trascina), la rotella per lo zoom e il tasto destro per spostarti.</p>
-                <div class="model-viewer-container">
-                    <p class="placeholder-model">Qui inserirai il codice del visualizzatore 3D dopo aver caricato il tuo modello su Autodesk Viewer o Sketchfab.</p>
+                <h2>Video di Progetto</h2>
+                <p>Guarda una presentazione video del progetto o dei dettagli significativi della nostra tesi.</p>
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="video-container">
+                            <video controls autoplay muted loop playsinline class="responsive-video">
+                                <source src="video_tesi.mp4" type="video/mp4">
+                                Il tuo browser non supporta il tag video. Puoi <a href="video_tesi.mp4">scaricare il video qui</a>.
+                            </video>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -84,16 +89,16 @@
         <section id="contatti" class="mb-5 text-center">
             <div class="container">
                 <h2>Contatti</h2>
-                <p>Per qualsiasi domanda o per approfondire il mio lavoro, non esitare a contattarmi:</p>
+                <p>Per qualsiasi domanda o per approfondire il nostro lavoro, non esitare a contattarci:</p>
                 <p>Email: <a href="mailto:tua.email@esempio.com">tua.email@esempio.com</a></p>
-                <p>LinkedIn: <a href="https://www.linkedin.com/in/tuoprofilo" target="_blank">Il mio profilo LinkedIn</a></p>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/tuoprofilo" target="_blank">Il nostro profilo LinkedIn</a></p>
             </div>
         </section>
     </main>
 
     <footer class="footer mt-auto py-3 bg-dark text-white text-center">
         <div class="container">
-            <p>&copy; 2025 [Tuo Nome e Cognome]. Tutti i diritti riservati.</p>
+            <p>&copy; 2025 Arianna D'Amico & Raffaele Valiante. Tutti i diritti riservati.</p>
         </div>
     </footer>
 
