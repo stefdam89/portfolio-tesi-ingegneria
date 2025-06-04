@@ -31,7 +31,7 @@ a:hover {
 .hero-section {
     background-color: #2c3e50;
     color: white;
-    padding: 80px 0;
+    padding: 80px 20px; /* MODIFICA QUI: Aggiunto padding laterale per il "bordo" */
     text-align: center;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     border-bottom-left-radius: 20px;
@@ -50,15 +50,16 @@ a:hover {
 }
 
 .profile-pic {
-    width: auto;
-    height: auto;
-    max-width: 250px;
-    max-height: 250px;
-    border-radius: 8px;
-    object-fit: contain;
-    margin-top: 30px;
-    border: 3px solid white;
-    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    width: 70%; /* L'immagine prenderà il 100% della larghezza del suo contenitore (.hero-section) */
+    height: auto; /* L'altezza si adatterà automaticamente per mantenere le proporzioni */
+    object-fit: cover; /* Assicurati che l'immagine copra l'area, tagliando se necessario */
+    border-radius: 8px; /* RIPRISTINATO: Mantieni il bordo leggermente arrotondato */
+    margin-top: 30px; /* Mantieni lo spazio superiore */
+    border: 3px solid white; /* Mantieni il bordo bianco */
+    box-shadow: 0 0 15px rgba(0,0,0,0.3); /* Mantieni l'ombra */
+    display: block; /* Aggiunto per corretto allineamento e margin auto */
+    margin-left: auto; /* Aggiunto per centrare l'immagine */
+    margin-right: auto; /* Aggiunto per centrare l'immagine */
 }
 
 /* --- Navbar (Menu di Navigazione) --- */
@@ -186,20 +187,19 @@ section h2::after {
     box-shadow: 0 3px 12px rgba(0,0,0,0.1);
 }
 
-/* --- Sezione Video (MODIFICHE CRUCIALI QUI) --- */
+/* --- Sezione Video (MODIFICHE PRECEDENTI CONFERMATE) --- */
 .video-container {
     background-color: #ecf0f1;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     padding: 20px;
     margin-top: 20px;
-    
-    /* REGOLE FONDAMENTALI PER IL RESPONSIVE VIDEO */
+
     position: relative;
-    width: 100% !important; /* Forza la larghezza al 100% */
-    padding-bottom: 56.25% !important; /* Forza il rapporto 16:9 con !important */
-    height: 0 !important; /* Forza l'altezza a 0 con !important */
-    overflow: hidden; /* Nasconde ciò che esce dai bordi */
+    width: 100% !important;
+    padding-bottom: 56.25% !important;
+    height: 0 !important;
+    overflow: hidden;
     border: 1px solid #dcdfe4;
 }
 
@@ -207,13 +207,13 @@ section h2::after {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100% !important; /* Forza la larghezza al 100% con !important */
-    height: 100% !important; /* Forza l'altezza al 100% con !important */
-    object-fit: contain; /* Assicura che l'intero video sia visibile, scalando se necessario */
-    max-width: 100%; 
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain;
+    max-width: 100%;
     max-height: 100%;
     border-radius: 8px;
-    display: block; /* Assicurati che sia un elemento a blocco */
+    display: block;
 }
 
 /* --- Contatti --- */
@@ -244,7 +244,7 @@ section h2::after {
     }
 
     .hero-section {
-        padding: 40px 0;
+        padding: 40px 15px; /* MODIFICA QUI: Riduci il padding laterale su schermi più piccoli */
     }
 
     .hero-section h1 {
@@ -256,11 +256,13 @@ section h2::after {
         font-size: 1em;
     }
 
-    .profile-pic {
-        max-width: 150px;
-        max-height: 150px;
+    /* Rimosso blocco .profile-pic specifico per schermi <= 768px.
+       Ora si affiderà alla regola generale .profile-pic per width: 100% e height: auto. */
+    /* .profile-pic {
+        max-width: 100%;
+        height: auto;
         margin-top: 20px;
-    }
+    } */
 
     main {
         padding-top: 20px;
@@ -317,9 +319,9 @@ section h2::after {
     }
 
     .video-container {
-        padding: 15px; 
-        margin: 20px auto; 
-        max-width: 90%; 
+        padding: 15px;
+        margin: 20px auto;
+        max-width: 90%;
         border-radius: 10px;
         box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
@@ -327,8 +329,8 @@ section h2::after {
     /* Modifica per le colonne di Bootstrap: aggiunta una regola specifica per il padding */
     .row > .col-md-6,
     .row > .col-md-8 {
-        padding-left: var(--bs-gutter-x, 0.75rem) !important; /* Forzo il padding standard */
-        padding-right: var(--bs-gutter-x, 0.75rem) !important; /* Forzo il padding standard */
+        padding-left: var(--bs-gutter-x, 0.75rem) !important;
+        padding-right: var(--bs-gutter-x, 0.75rem) !important;
         flex: 0 0 100%;
         max-width: 100%;
     }
@@ -337,7 +339,7 @@ section h2::after {
 /* Regole per schermi molto piccoli (es. <= 576px, smartphone in verticale) */
 @media (max-width: 576px) {
     .hero-section {
-        padding: 30px 0;
+        padding: 30px 10px; /* MODIFICA QUI: Riduci ulteriormente il padding laterale */
     }
 
     .hero-section h1 {
@@ -348,11 +350,13 @@ section h2::after {
         font-size: 0.9em;
     }
 
-    .profile-pic {
-        max-width: 100px;
-        max-height: 100px;
+    /* Rimosso blocco .profile-pic specifico per schermi <= 576px.
+       Ora si affiderà alla regola generale .profile-pic per width: 100% e height: auto. */
+    /* .profile-pic {
+        max-width: 100%;
+        height: auto;
         margin-top: 10px;
-    }
+    } */
 
     section {
         padding: 20px 15px;
