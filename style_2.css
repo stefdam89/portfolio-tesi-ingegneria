@@ -1,10 +1,10 @@
-/* --- Stili Generali e Reset --- */
+/* --- Stili Generali e Reset (Nessuna modifica) --- */
 body {
     font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.7;
     color: #343a40;
     background-color: #ecf0f1;
-    padding-top: 70px; /* Spazio per la navbar fissa */
+    padding-top: 70px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -27,7 +27,7 @@ a:hover {
     text-decoration: underline;
 }
 
-/* --- Sezione Hero (Intestazione Principale) --- */
+/* --- Sezione Hero (Nessuna modifica) --- */
 .hero-section {
     background-color: #2c3e50;
     color: white;
@@ -62,7 +62,7 @@ a:hover {
     margin-right: auto;
 }
 
-/* --- Navbar (Menu di Navigazione) --- */
+/* --- Navbar (Nessuna modifica) --- */
 .navbar {
     background-color: #34495e !important;
     box-shadow: 0 2px 5px rgba(0,0,0,.2);
@@ -81,7 +81,7 @@ a:hover {
     border-radius: 5px;
 }
 
-/* --- Contenuto Principale --- */
+/* --- Contenuto Principale (Nessuna modifica generale, le modifiche sono nelle media queries) --- */
 main {
     padding-top: 40px;
     padding-bottom: 40px;
@@ -96,7 +96,6 @@ section {
     border-top: 1px solid rgba(0,0,0,0.05);
 }
 
-/* Titoli delle sezioni */
 section h2 {
     text-align: center;
     margin-bottom: 40px;
@@ -141,6 +140,9 @@ section h2::after {
     padding: 20px;
     margin-top: 30px;
     text-align: center;
+    /* Assicurati che non ci siano limiti di larghezza qui su desktop */
+    width: 100%; /* Aggiunto o verificato */
+    box-sizing: border-box; /* Aggiunto o verificato */
 }
 
 .pdf-viewer-container iframe {
@@ -189,6 +191,8 @@ section h2::after {
     height: 0 !important;
     overflow: hidden;
     border: 1px solid #dcdfe4;
+    /* Aggiungi o verifica queste per desktop */
+    box-sizing: border-box;
 }
 
 .video-container .responsive-video {
@@ -204,7 +208,7 @@ section h2::after {
     display: block;
 }
 
-/* --- Contatti --- */
+/* --- Contatti (Nessuna modifica) --- */
 #contatti p {
     font-size: 1.1em;
 }
@@ -212,7 +216,7 @@ section h2::after {
     font-weight: bold;
 }
 
-/* --- Footer --- */
+/* --- Footer (Nessuna modifica) --- */
 .footer {
     background-color: #34495e !important;
     color: #ecf0f1 !important;
@@ -223,7 +227,7 @@ section h2::after {
     border-top-right-radius: 20px;
 }
 
-/* --- Media Queries per Responsive Design (MODIFICHE AGGIORNATE) --- */
+/* --- Media Queries per Responsive Design --- */
 
 /* Regole per schermi <= 768px (Tablet in verticale, Smartphone in orizzontale) */
 @media (max-width: 768px) {
@@ -282,6 +286,8 @@ section h2::after {
     .pdf-viewer-container {
         padding: 15px;
         margin-top: 25px;
+        width: 100%; /* Già presente */
+        box-sizing: border-box; /* Già presente */
     }
 
     .pdf-viewer-container iframe {
@@ -300,13 +306,15 @@ section h2::after {
         box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         border: 1px solid #dcdfe4;
         margin: 20px auto;
-        max-width: 90%;
+        max-width: 100%; /* Assicurati che prenda tutta la larghezza del genitore */
+        box-sizing: border-box; /* Aggiunto o verificato */
     }
 
     .row > .col-md-6,
     .row > .col-md-8 {
-        padding-left: var(--bs-gutter-x, 0.75rem) !important;
-        padding-right: var(--bs-gutter-x, 0.75rem) !important;
+        /* Questo è importante: rimuove il padding di Bootstrap */
+        padding-left: 0 !important;
+        padding-right: 0 !important;
         flex: 0 0 100%;
         max-width: 100%;
     }
@@ -327,7 +335,7 @@ section h2::after {
     }
 
     section {
-        padding: 20px 15px;
+        padding: 20px 0; /* Riduci il padding verticale della sezione principale per dare più spazio */
         margin-bottom: 20px;
     }
 
@@ -337,7 +345,7 @@ section h2::after {
     }
 
     .thesis-card {
-        padding: 10px; /* Riduci il padding su smartphone */
+        padding: 0px; /* Riduci il padding a 0 per massimizzare lo spazio */
         border-left: none; /* Rimuovi la striscia verde su smartphone */
         box-shadow: none; /* Rimuovi l'ombra su smartphone */
         border-radius: 0; /* Rimuovi il border-radius per fare in modo che si "fondi" con la sezione */
@@ -346,21 +354,57 @@ section h2::after {
 
     .thesis-card h3 {
         font-size: 1.1em;
+        padding: 0 15px; /* Aggiungi un padding laterale per il titolo della tesi per non farlo toccare i bordi */
+        margin-top: 15px; /* Aggiungi un piccolo margine superiore */
+        text-align: center; /* Centra il titolo */
+    }
+
+    .thesis-card p {
+        padding: 0 15px; /* Aggiungi un padding laterale per il testo per non farlo toccare i bordi */
+    }
+    
+    .thesis-card .btn-primary {
+        margin: 20px auto; /* Centra il bottone e dai un po' di spazio */
+        display: block; /* Rendilo un blocco per usare margin auto */
+        width: fit-content; /* Fai in modo che la larghezza si adatti al contenuto */
+    }
+
+    .pdf-viewer-container {
+        padding: 0px; /* Rimuovi padding per massimizzare larghezza */
+        margin-top: 15px; /* Riduci il margine superiore se preferisci */
+        border-radius: 0; /* Rimuovi border-radius */
+        box-shadow: none; /* Rimuovi l'ombra */
+        background-color: white; /* Rendi il background come quello della sezione */
+        border: none; /* Rimuovi qualsiasi bordo residuo */
+        width: 100%; /* Assicurati che prenda tutta la larghezza */
+        box-sizing: border-box; /* Per includere padding nel width */
     }
 
     .pdf-viewer-container iframe {
         height: 300px;
-    }
-
-    .btn-primary {
-        padding: 8px 18px;
-        font-size: 0.9em;
+        width: 100%;
+        border-radius: 0; /* Rimuovi anche qui il border-radius per maggiore fusione */
+        border: none; /* Rimuovi il bordo per maggiore fusione */
     }
 
     .video-container {
-        padding: 10px;
-        border-radius: 10px;
-        border: 1px solid #dcdfe4;
-        max-width: 95%;
+        padding: 0px; /* Rimuovi padding per massimizzare larghezza */
+        border-radius: 0; /* Rimuovi border-radius */
+        border: none; /* Rimuovi il bordo */
+        box-shadow: none; /* Rimuovi l'ombra */
+        margin: 15px auto; /* Riduci il margine superiore se preferisci */
+        max-width: 100%; /* Assicurati che prenda il 100% */
+        box-sizing: border-box; /* Per includere padding nel width */
+    }
+
+    .video-container .responsive-video {
+        border-radius: 0; /* Rimuovi il border-radius dal video stesso */
+    }
+
+    /* Rimuovi i padding orizzontali delle colonne Bootstrap all'interno delle sezioni specifiche */
+    .section .row > .col-md-6,
+    .section .row > .col-md-8 {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
     }
 }
