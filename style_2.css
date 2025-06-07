@@ -31,7 +31,7 @@ a:hover {
 .hero-section {
     background-color: #2c3e50;
     color: white;
-    padding: 80px 20px; /* MODIFICA QUI: Aggiunto padding laterale per il "bordo" */
+    padding: 80px 20px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     border-bottom-left-radius: 20px;
@@ -50,16 +50,16 @@ a:hover {
 }
 
 .profile-pic {
-    width: 70%; /* L'immagine prenderà il 100% della larghezza del suo contenitore (.hero-section) */
-    height: auto; /* L'altezza si adatterà automaticamente per mantenere le proporzioni */
-    object-fit: cover; /* Assicurati che l'immagine copra l'area, tagliando se necessario */
-    border-radius: 8px; /* RIPRISTINATO: Mantieni il bordo leggermente arrotondato */
-    margin-top: 30px; /* Mantieni lo spazio superiore */
-    border: 3px solid white; /* Mantieni il bordo bianco */
-    box-shadow: 0 0 15px rgba(0,0,0,0.3); /* Mantieni l'ombra */
-    display: block; /* Aggiunto per corretto allineamento e margin auto */
-    margin-left: auto; /* Aggiunto per centrare l'immagine */
-    margin-right: auto; /* Aggiunto per centrare l'immagine */
+    width: 70%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-top: 30px;
+    border: 3px solid white;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* --- Navbar (Menu di Navigazione) --- */
@@ -118,7 +118,7 @@ section h2::after {
     border-radius: 3px;
 }
 
-/* --- Stile per la "Cornice Carina" della Tesi --- */
+/* --- Stile per la "Cornice Carina" della Tesi / Box Contenitore --- */
 .thesis-card {
     background-color: #f0f8ff;
     border-radius: 15px;
@@ -129,20 +129,9 @@ section h2::after {
 
 .thesis-card h3 {
     color: #2c3e50;
-    font-size: 2em;
+    font-size: 1.7em; /* Modificato per rimpicciolire il titolo della tesi */
     margin-bottom: 25px;
-}
-
-.thesis-abstract {
-    background-color: #e6f7ff;
-    padding: 20px;
-    border-radius: 10px;
-    border-left: 5px solid #1abc9c;
-    margin-top: 25px;
-    font-size: 1.1em;
-    line-height: 1.8;
-    box-shadow: inset 0 0 8px rgba(0,0,0,0.05);
-    color: #343a40; /* Assicurati che il colore del testo sia visibile */
+    /* Le regole per .thesis-abstract sono state rimosse in quanto la classe non è più usata nell'HTML */
 }
 
 /* Visualizzatore PDF */
@@ -187,20 +176,20 @@ section h2::after {
     box-shadow: 0 3px 12px rgba(0,0,0,0.1);
 }
 
-/* --- Sezione Video (MODIFICHE PRECEDENTI CONFERMATE) --- */
+/* --- Sezione Video (Reimpostato per contenere un video all'interno di .thesis-card) --- */
 .video-container {
-    background-color: #ecf0f1;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    padding: 20px;
-    margin-top: 20px;
+    background-color: #ecf0f1; /* Colore di sfondo più chiaro per il riquadro interno del video */
+    border-radius: 10px; /* Bordo arrotondato */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Ombra leggera */
+    padding: 20px; /* Padding interno */
+    margin-top: 20px; /* Margine superiore */
 
     position: relative;
     width: 100% !important;
-    padding-bottom: 56.25% !important;
+    padding-bottom: 56.25% !important; /* Mantiene proporzioni 16:9 */
     height: 0 !important;
     overflow: hidden;
-    border: 1px solid #dcdfe4;
+    border: 1px solid #dcdfe4; /* Bordo sottile */
 }
 
 .video-container .responsive-video {
@@ -244,7 +233,7 @@ section h2::after {
     }
 
     .hero-section {
-        padding: 40px 15px; /* MODIFICA QUI: Riduci il padding laterale su schermi più piccoli */
+        padding: 40px 15px;
     }
 
     .hero-section h1 {
@@ -255,14 +244,6 @@ section h2::after {
     .lead {
         font-size: 1em;
     }
-
-    /* Rimosso blocco .profile-pic specifico per schermi <= 768px.
-       Ora si affiderà alla regola generale .profile-pic per width: 100% e height: auto. */
-    /* .profile-pic {
-        max-width: 100%;
-        height: auto;
-        margin-top: 20px;
-    } */
 
     main {
         padding-top: 20px;
@@ -292,15 +273,8 @@ section h2::after {
     }
 
     .thesis-card h3 {
-        font-size: 1.5em;
+        font-size: 1.3em;
         margin-bottom: 15px;
-    }
-
-    .thesis-abstract {
-        padding: 18px;
-        font-size: 1em;
-        border-left: 4px solid #1abc9c;
-        margin-top: 20px;
     }
 
     .pdf-viewer-container {
@@ -318,12 +292,15 @@ section h2::after {
         font-size: 1.05em;
     }
 
+    /* Regole per .video-container all'interno di .thesis-card su mobile */
     .video-container {
-        padding: 15px;
+        padding: 15px; /* Riporta al padding originale per mobile */
+        border-radius: 10px; /* Riporta al raggio originale per mobile */
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Riporta all'ombra originale per mobile */
+        border: 1px solid #dcdfe4; /* Riporta al bordo originale */
+        /* Non ha più border-left qui, perché è il genitore .thesis-card ad averlo */
         margin: 20px auto;
         max-width: 90%;
-        border-radius: 10px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
 
     /* Modifica per le colonne di Bootstrap: aggiunta una regola specifica per il padding */
@@ -339,7 +316,7 @@ section h2::after {
 /* Regole per schermi molto piccoli (es. <= 576px, smartphone in verticale) */
 @media (max-width: 576px) {
     .hero-section {
-        padding: 30px 10px; /* MODIFICA QUI: Riduci ulteriormente il padding laterale */
+        padding: 30px 10px;
     }
 
     .hero-section h1 {
@@ -349,14 +326,6 @@ section h2::after {
     .lead {
         font-size: 0.9em;
     }
-
-    /* Rimosso blocco .profile-pic specifico per schermi <= 576px.
-       Ora si affiderà alla regola generale .profile-pic per width: 100% e height: auto. */
-    /* .profile-pic {
-        max-width: 100%;
-        height: auto;
-        margin-top: 10px;
-    } */
 
     section {
         padding: 20px 15px;
@@ -374,13 +343,7 @@ section h2::after {
     }
 
     .thesis-card h3 {
-        font-size: 1.2em;
-    }
-
-    .thesis-abstract {
-        padding: 15px;
-        font-size: 0.9em;
-        border-left: 2px solid #1abc9c;
+        font-size: 1.1em;
     }
 
     .pdf-viewer-container iframe {
@@ -392,8 +355,12 @@ section h2::after {
         font-size: 0.9em;
     }
 
+    /* Regole per .video-container all'interno di .thesis-card su mobile molto piccolo */
     .video-container {
-        padding: 10px;
+        padding: 10px; /* Riporta al padding originale per mobile */
+        border-radius: 10px; /* Riporta al raggio originale per mobile */
+        border: 1px solid #dcdfe4; /* Riporta al bordo originale */
+        /* Non ha più border-left qui */
         max-width: 95%;
     }
 }
