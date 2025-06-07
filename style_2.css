@@ -159,7 +159,7 @@ section h2::after {
     border: 1px solid #ccc;
     border-radius: 8px;
     width: 100%;
-    height: 800px; /* Aumentata altezza per desktop */
+    height: 800px; /* Altezza aumentata per desktop */
 }
 
 /* Pulsante di download - Mantenuto per compatibilità futura se lo riabiliti */
@@ -406,7 +406,7 @@ section h2::after {
     }
 
     .pdf-viewer-container iframe {
-        height: 350px; /* Altezza leggermente aumentata per mobile */
+        height: 550px; /* *** MODIFICA QUI: Aumentato a 550px per mobile *** */
         width: 100%;
         border-radius: 0;
         border: none;
