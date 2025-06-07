@@ -55,8 +55,10 @@ a:hover {
     opacity: 0.9;
 }
 
+/* MODIFICHE PER L'IMMAGINE INIZIALE */
 .profile-pic {
-    width: 70%;
+    width: calc(100% - 20px); /* Quasi tutta la larghezza, lasciando 10px per lato */
+    max-width: 900px; /* Limite massimo per schermi grandi */
     height: auto;
     object-fit: cover;
     border-radius: 8px;
@@ -64,8 +66,8 @@ a:hover {
     border: 3px solid white;
     box-shadow: 0 0 15px rgba(0,0,0,0.3);
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: auto; /* Centra l'immagine */
+    margin-right: auto; /* Centra l'immagine */
 }
 
 /* --- Navbar (Menu di Navigazione) --- */
@@ -91,10 +93,7 @@ a:hover {
 main {
     padding-top: 40px;
     padding-bottom: 40px;
-
-    /* INIZIO MODIFICHE PER STICKY FOOTER */
     flex-grow: 1; /* Permette all'elemento main di "crescere" e occupare tutto lo spazio disponibile */
-    /* FINE MODIFICHE PER STICKY FOOTER */
 }
 
 section {
@@ -153,16 +152,17 @@ section h2::after {
     text-align: center;
     width: 100%;
     box-sizing: border-box;
+    /* Rimosso margin-bottom inutile o regolato da contenitore */
 }
 
 .pdf-viewer-container iframe {
     border: 1px solid #ccc;
     border-radius: 8px;
     width: 100%;
-    height: 600px;
+    height: 800px; /* Aumentata altezza per desktop */
 }
 
-/* Pulsante di download */
+/* Pulsante di download - Mantenuto per compatibilità futura se lo riabiliti */
 .btn-primary {
     background-color: #1abc9c;
     border-color: #1abc9c;
@@ -197,7 +197,7 @@ section h2::after {
 
     position: relative;
     width: 100% !important;
-    padding-bottom: 56.25% !important;
+    padding-bottom: 56.25% !important; /* Mantiene l'aspect ratio 16:9 */
     height: 0 !important;
     overflow: hidden;
     border: 1px solid #dcdfe4;
@@ -210,7 +210,7 @@ section h2::after {
     left: 0;
     width: 100% !important;
     height: 100% !important;
-    object-fit: contain;
+    object-fit: contain; /* Assicura che il video sia contenuto senza tagli */
     max-width: 100%;
     max-height: 100%;
     border-radius: 8px;
@@ -218,12 +218,16 @@ section h2::after {
 }
 
 /* --- Contatti --- */
+/* Questa sezione non esiste più nell'HTML, quindi queste regole non avranno effetto.
+   Se vuoi reintrodurla, puoi riaggiungere il blocco <section id="contatti"> nell'HTML. */
+/*
 #contatti p {
     font-size: 1.1em;
 }
 #contatti a {
     font-weight: bold;
 }
+*/
 
 /* --- Footer --- */
 .footer {
@@ -231,7 +235,7 @@ section h2::after {
     color: #ecf0f1 !important;
     padding: 25px 0 !important;
     font-size: 0.9em;
-    margin-top: 50px;
+    margin-top: auto; /* Questo è fondamentale per sticky footer, spinge il footer in basso */
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 }
@@ -255,6 +259,12 @@ section h2::after {
 
     .lead {
         font-size: 1em;
+    }
+
+    /* Immagine iniziale per tablet */
+    .profile-pic {
+        width: calc(100% - 30px); /* Lascia un po' più di margine per tablet */
+        max-width: 600px; /* Limite per tablet */
     }
 
     main {
@@ -300,7 +310,7 @@ section h2::after {
     }
 
     .pdf-viewer-container iframe {
-        height: 400px;
+        height: 500px; /* Altezza per tablet */
         width: 100%;
     }
 
@@ -319,11 +329,12 @@ section h2::after {
         box-sizing: border-box;
     }
 
+    /* Rimuove i padding standard di Bootstrap per le colonne specifiche */
     .row > .col-md-6,
     .row > .col-md-8 {
         padding-left: var(--bs-gutter-x, 0.75rem) !important;
         padding-right: var(--bs-gutter-x, 0.75rem) !important;
-        flex: 0 0 100%;
+        flex: 0 0 100%; /* Assicura che la colonna occupi tutta la larghezza disponibile */
         max-width: 100%;
     }
 }
@@ -342,6 +353,12 @@ section h2::after {
         font-size: 0.9em;
     }
 
+    /* Immagine iniziale per mobile */
+    .profile-pic {
+        width: calc(100% - 20px); /* Lascia 10px di margine per lato */
+        max-width: 100%;
+    }
+
     section {
         padding: 20px 0; /* Riduci il padding verticale della sezione principale per dare più spazio */
         margin-bottom: 20px;
@@ -356,7 +373,7 @@ section h2::after {
         padding: 0px; /* Riduci il padding a 0 per massimizzare lo spazio */
         border-left: none; /* Rimuovi la striscia verde su smartphone */
         box-shadow: none; /* Rimuovi l'ombra su smartphone */
-        border-radius: 0; /* Rimuovi il border-radius per fare in modo che si "fondi" con la sezione */
+        border-radius: 0; /* Rimuovi il border-radius per fare in modo che si "fonda" con la sezione */
         background-color: white; /* Rendi il background come quello della sezione */
     }
 
@@ -389,7 +406,7 @@ section h2::after {
     }
 
     .pdf-viewer-container iframe {
-        height: 300px;
+        height: 350px; /* Altezza leggermente aumentata per mobile */
         width: 100%;
         border-radius: 0;
         border: none;
@@ -409,6 +426,7 @@ section h2::after {
         border-radius: 0;
     }
 
+    /* Rimuove i padding standard di Bootstrap per le colonne specifiche */
     .row > .col-md-6,
     .row > .col-md-8 {
         padding-left: 0 !important;
