@@ -1,10 +1,16 @@
-/* --- Stili Generali e Reset (Nessuna modifica) --- */
+/* --- Stili Generali e Reset --- */
 body {
     font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.7;
     color: #343a40;
     background-color: #ecf0f1;
-    padding-top: 70px;
+    padding-top: 70px; /* Spazio per la navbar fissa */
+
+    /* INIZIO MODIFICHE PER STICKY FOOTER */
+    display: flex; /* Abilita Flexbox */
+    flex-direction: column; /* Organizza gli elementi in colonna */
+    min-height: 100vh; /* La body deve occupare almeno il 100% dell'altezza della viewport */
+    /* FINE MODIFICHE PER STICKY FOOTER */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -27,7 +33,7 @@ a:hover {
     text-decoration: underline;
 }
 
-/* --- Sezione Hero (Nessuna modifica) --- */
+/* --- Sezione Hero (Intestazione Principale) --- */
 .hero-section {
     background-color: #2c3e50;
     color: white;
@@ -62,7 +68,7 @@ a:hover {
     margin-right: auto;
 }
 
-/* --- Navbar (Nessuna modifica) --- */
+/* --- Navbar (Menu di Navigazione) --- */
 .navbar {
     background-color: #34495e !important;
     box-shadow: 0 2px 5px rgba(0,0,0,.2);
@@ -81,10 +87,14 @@ a:hover {
     border-radius: 5px;
 }
 
-/* --- Contenuto Principale (Nessuna modifica generale, le modifiche sono nelle media queries) --- */
+/* --- Contenuto Principale --- */
 main {
     padding-top: 40px;
     padding-bottom: 40px;
+
+    /* INIZIO MODIFICHE PER STICKY FOOTER */
+    flex-grow: 1; /* Permette all'elemento main di "crescere" e occupare tutto lo spazio disponibile */
+    /* FINE MODIFICHE PER STICKY FOOTER */
 }
 
 section {
@@ -96,6 +106,7 @@ section {
     border-top: 1px solid rgba(0,0,0,0.05);
 }
 
+/* Titoli delle sezioni */
 section h2 {
     text-align: center;
     margin-bottom: 40px;
@@ -140,9 +151,8 @@ section h2::after {
     padding: 20px;
     margin-top: 30px;
     text-align: center;
-    /* Assicurati che non ci siano limiti di larghezza qui su desktop */
-    width: 100%; /* Aggiunto o verificato */
-    box-sizing: border-box; /* Aggiunto o verificato */
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .pdf-viewer-container iframe {
@@ -191,7 +201,6 @@ section h2::after {
     height: 0 !important;
     overflow: hidden;
     border: 1px solid #dcdfe4;
-    /* Aggiungi o verifica queste per desktop */
     box-sizing: border-box;
 }
 
@@ -208,7 +217,7 @@ section h2::after {
     display: block;
 }
 
-/* --- Contatti (Nessuna modifica) --- */
+/* --- Contatti --- */
 #contatti p {
     font-size: 1.1em;
 }
@@ -216,7 +225,7 @@ section h2::after {
     font-weight: bold;
 }
 
-/* --- Footer (Nessuna modifica) --- */
+/* --- Footer --- */
 .footer {
     background-color: #34495e !important;
     color: #ecf0f1 !important;
@@ -286,8 +295,8 @@ section h2::after {
     .pdf-viewer-container {
         padding: 15px;
         margin-top: 25px;
-        width: 100%; /* Già presente */
-        box-sizing: border-box; /* Già presente */
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .pdf-viewer-container iframe {
@@ -306,15 +315,14 @@ section h2::after {
         box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         border: 1px solid #dcdfe4;
         margin: 20px auto;
-        max-width: 100%; /* Assicurati che prenda tutta la larghezza del genitore */
-        box-sizing: border-box; /* Aggiunto o verificato */
+        max-width: 100%;
+        box-sizing: border-box;
     }
 
     .row > .col-md-6,
     .row > .col-md-8 {
-        /* Questo è importante: rimuove il padding di Bootstrap */
-        padding-left: 0 !important;
-        padding-right: 0 !important;
+        padding-left: var(--bs-gutter-x, 0.75rem) !important;
+        padding-right: var(--bs-gutter-x, 0.75rem) !important;
         flex: 0 0 100%;
         max-width: 100%;
     }
@@ -354,13 +362,13 @@ section h2::after {
 
     .thesis-card h3 {
         font-size: 1.1em;
-        padding: 0 15px; /* Aggiungi un padding laterale per il titolo della tesi per non farlo toccare i bordi */
+        padding: 0 15px; /* Aggiungi un padding laterale per il titolo della tesi */
         margin-top: 15px; /* Aggiungi un piccolo margine superiore */
         text-align: center; /* Centra il titolo */
     }
 
     .thesis-card p {
-        padding: 0 15px; /* Aggiungi un padding laterale per il testo per non farlo toccare i bordi */
+        padding: 0 15px; /* Aggiungi un padding laterale per il testo */
     }
     
     .thesis-card .btn-primary {
@@ -376,15 +384,15 @@ section h2::after {
         box-shadow: none; /* Rimuovi l'ombra */
         background-color: white; /* Rendi il background come quello della sezione */
         border: none; /* Rimuovi qualsiasi bordo residuo */
-        width: 100%; /* Assicurati che prenda tutta la larghezza */
-        box-sizing: border-box; /* Per includere padding nel width */
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .pdf-viewer-container iframe {
         height: 300px;
         width: 100%;
-        border-radius: 0; /* Rimuovi anche qui il border-radius per maggiore fusione */
-        border: none; /* Rimuovi il bordo per maggiore fusione */
+        border-radius: 0;
+        border: none;
     }
 
     .video-container {
@@ -393,18 +401,19 @@ section h2::after {
         border: none; /* Rimuovi il bordo */
         box-shadow: none; /* Rimuovi l'ombra */
         margin: 15px auto; /* Riduci il margine superiore se preferisci */
-        max-width: 100%; /* Assicurati che prenda il 100% */
-        box-sizing: border-box; /* Per includere padding nel width */
+        max-width: 100%;
+        box-sizing: border-box;
     }
 
     .video-container .responsive-video {
-        border-radius: 0; /* Rimuovi il border-radius dal video stesso */
+        border-radius: 0;
     }
 
-    /* Rimuovi i padding orizzontali delle colonne Bootstrap all'interno delle sezioni specifiche */
-    .section .row > .col-md-6,
-    .section .row > .col-md-8 {
+    .row > .col-md-6,
+    .row > .col-md-8 {
         padding-left: 0 !important;
         padding-right: 0 !important;
+        flex: 0 0 100%;
+        max-width: 100%;
     }
 }
